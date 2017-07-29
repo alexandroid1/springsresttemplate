@@ -1,17 +1,13 @@
 
 package com.levelup;
 
-import java.util.HashMap;
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.*;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -32,7 +28,7 @@ public class Stream {
     @JsonProperty("isNew")
     private boolean isNew;
     @JsonProperty("$__")
-    private com.levelup.$ $;
+    private Root Root;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -45,19 +41,19 @@ public class Stream {
 
     /**
      * 
-     * @param $
+     * @param Root
      * @param isNew
      * @param doc
      * @param posts
      * @param pres
      */
-    public Stream(Posts posts, Pres pres, Doc doc, boolean isNew, com.levelup.$ $) {
+    public Stream(Posts posts, Pres pres, Doc doc, boolean isNew, Root Root) {
         super();
         this.posts = posts;
         this.pres = pres;
         this.doc = doc;
         this.isNew = isNew;
-        this.$ = $;
+        this.Root = Root;
     }
 
     @JsonProperty("_posts")
@@ -121,17 +117,17 @@ public class Stream {
     }
 
     @JsonProperty("$__")
-    public com.levelup.$ get$() {
-        return $;
+    public Root getRoot() {
+        return Root;
     }
 
     @JsonProperty("$__")
-    public void set$(com.levelup.$ $) {
-        this.$ = $;
+    public void setRoot(Root root) {
+        this.Root = root;
     }
 
-    public Stream with$(com.levelup.$ $) {
-        this.$ = $;
+    public Stream with$(Root Root) {
+        this.Root = Root;
         return this;
     }
 
@@ -157,7 +153,7 @@ public class Stream {
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(posts).append(pres).append(doc).append(isNew).append($).append(additionalProperties).toHashCode();
+        return new HashCodeBuilder().append(posts).append(pres).append(doc).append(isNew).append(Root).append(additionalProperties).toHashCode();
     }
 
     @Override
@@ -169,7 +165,7 @@ public class Stream {
             return false;
         }
         Stream rhs = ((Stream) other);
-        return new EqualsBuilder().append(posts, rhs.posts).append(pres, rhs.pres).append(doc, rhs.doc).append(isNew, rhs.isNew).append($, rhs.$).append(additionalProperties, rhs.additionalProperties).isEquals();
+        return new EqualsBuilder().append(posts, rhs.posts).append(pres, rhs.pres).append(doc, rhs.doc).append(isNew, rhs.isNew).append(Root, rhs.Root).append(additionalProperties, rhs.additionalProperties).isEquals();
     }
 
 }

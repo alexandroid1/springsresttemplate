@@ -1,22 +1,19 @@
 
 package com.levelup;
 
-import java.util.HashMap;
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.*;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
 
 })
-public class Getters {
+public class Events {
 
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
@@ -36,7 +33,7 @@ public class Getters {
         this.additionalProperties.put(name, value);
     }
 
-    public Getters withAdditionalProperty(String name, Object value) {
+    public Events withAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
         return this;
     }
@@ -51,10 +48,10 @@ public class Getters {
         if (other == this) {
             return true;
         }
-        if ((other instanceof Getters) == false) {
+        if ((other instanceof Events) == false) {
             return false;
         }
-        Getters rhs = ((Getters) other);
+        Events rhs = ((Events) other);
         return new EqualsBuilder().append(additionalProperties, rhs.additionalProperties).isEquals();
     }
 

@@ -22,7 +22,7 @@ public class SpringsresttemplateApplicationTests {
 				String.class);
 
 		System.out.println(response);
-
+		
 	}
 
 	// Handling an exception
